@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  num_bed: 1
+  num_bath: 1
+  size: 1
+  avail: MyString
+  cl_property_id: 
+
+two:
+  num_bed: 1
+  num_bath: 1
+  size: 1
+  avail: MyString
+  cl_property_id: 

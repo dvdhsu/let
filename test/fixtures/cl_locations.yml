@@ -1,0 +1,29 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  lat: MyString
+  long: MyString
+  state: MyString
+  metro: MyString
+  county: MyString
+  region: MyString
+  city: MyString
+  locality: MyString
+  formatted_address: MyString
+  zipcode: 1
+  accuracy: 1
+  cl_property_id: 
+
+two:
+  lat: MyString
+  long: MyString
+  state: MyString
+  metro: MyString
+  county: MyString
+  region: MyString
+  city: MyString
+  locality: MyString
+  formatted_address: MyString
+  zipcode: 1
+  accuracy: 1
+  cl_property_id: 

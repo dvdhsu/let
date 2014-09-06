@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140906053723) do
+ActiveRecord::Schema.define(version: 20140906225834) do
 
   create_table "anchors", force: true do |t|
     t.string   "anchor"
@@ -19,5 +19,66 @@ ActiveRecord::Schema.define(version: 20140906053723) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
+
+  create_table "cl_albums", force: true do |t|
+    t.string   "full_src"
+    t.string   "thumbnail_src"
+    t.integer  "full_width"
+    t.integer  "full_height"
+    t.integer  "thumbnail_width"
+    t.integer  "thumbnail_height"
+    t.integer  "cl_property_id"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+  end
+
+  add_index "cl_albums", ["cl_property_id"], name: "index_cl_albums_on_cl_property_id"
+
+  create_table "cl_annotations", force: true do |t|
+    t.integer  "num_bed"
+    t.integer  "num_bath"
+    t.integer  "size"
+    t.string   "avail"
+    t.integer  "cl_property_id"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+  end
+
+  add_index "cl_annotations", ["cl_property_id"], name: "index_cl_annotations_on_cl_property_id"
+
+  create_table "cl_locations", force: true do |t|
+    t.string   "lat"
+    t.string   "long"
+    t.string   "state"
+    t.string   "metro"
+    t.string   "county"
+    t.string   "region"
+    t.string   "city"
+    t.string   "locality"
+    t.string   "formatted_address"
+    t.integer  "zipcode"
+    t.integer  "accuracy"
+    t.integer  "cl_property_id"
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
+  end
+
+  add_index "cl_locations", ["cl_property_id"], name: "index_cl_locations_on_cl_property_id"
+
+  create_table "cl_properties", force: true do |t|
+    t.string   "external_id"
+    t.string   "external_url"
+    t.string   "heading"
+    t.string   "body"
+    t.string   "rent"
+    t.string   "status"
+    t.integer  "external_timestamp"
+    t.integer  "expires"
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+  end
+
+  add_index "cl_properties", ["external_id"], name: "index_cl_properties_on_external_id"
+  add_index "cl_properties", ["external_url"], name: "index_cl_properties_on_external_url"
 
 end
