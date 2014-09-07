@@ -41,7 +41,7 @@ ActiveRecord::Schema.define(version: 20140906225834) do
     t.integer  "num_bed"
     t.integer  "num_bath"
     t.integer  "size"
-    t.string   "avail"
+    t.date     "avail"
     t.integer  "cl_property_id"
     t.datetime "created_at",     null: false
     t.datetime "updated_at",     null: false

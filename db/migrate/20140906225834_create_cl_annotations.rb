@@ -4,7 +4,7 @@ class CreateClAnnotations < ActiveRecord::Migration
       t.integer :num_bed
       t.integer :num_bath
       t.integer :size
-      t.string :avail
+      t.date    :avail
       t.references :cl_property, index: true
 
       t.timestamps null: false
