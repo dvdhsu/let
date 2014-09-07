@@ -6,7 +6,6 @@ class CreateClProperties < ActiveRecord::Migration
       t.string :heading
       t.string :body
       t.string :rent
-      t.string :status
 
       t.integer :external_timestamp
       t.integer :expires
