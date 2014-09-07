@@ -20,3 +20,6 @@
 
 # Ignore Figaro's application.yml
 /config/application.yml
+
+# Ignore vim's swap file
+*.sw?
