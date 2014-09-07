@@ -13,6 +13,9 @@
 
 ActiveRecord::Schema.define(version: 20140906225834) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "anchors", force: true do |t|
     t.string   "anchor"
     t.integer  "num_polled"
@@ -32,7 +35,7 @@ ActiveRecord::Schema.define(version: 20140906225834) do
     t.datetime "updated_at",       null: false
   end
 
-  add_index "cl_albums", ["cl_property_id"], name: "index_cl_albums_on_cl_property_id"
+  add_index "cl_albums", ["cl_property_id"], name: "index_cl_albums_on_cl_property_id", using: :btree
 
   create_table "cl_annotations", force: true do |t|
     t.integer  "num_bed"
@@ -44,7 +47,7 @@ ActiveRecord::Schema.define(version: 20140906225834) do
     t.datetime "updated_at",     null: false
   end
 
-  add_index "cl_annotations", ["cl_property_id"], name: "index_cl_annotations_on_cl_property_id"
+  add_index "cl_annotations", ["cl_property_id"], name: "index_cl_annotations_on_cl_property_id", using: :btree
 
   create_table "cl_locations", force: true do |t|
     t.string   "lat"
@@ -63,7 +66,7 @@ ActiveRecord::Schema.define(version: 20140906225834) do
     t.datetime "updated_at",        null: false
   end
 
-  add_index "cl_locations", ["cl_property_id"], name: "index_cl_locations_on_cl_property_id"
+  add_index "cl_locations", ["cl_property_id"], name: "index_cl_locations_on_cl_property_id", using: :btree
 
   create_table "cl_properties", force: true do |t|
     t.string   "external_id"
@@ -78,7 +81,7 @@ ActiveRecord::Schema.define(version: 20140906225834) do
     t.datetime "updated_at",         null: false
   end
 
-  add_index "cl_properties", ["external_id"], name: "index_cl_properties_on_external_id"
-  add_index "cl_properties", ["external_url"], name: "index_cl_properties_on_external_url"
+  add_index "cl_properties", ["external_id"], name: "index_cl_properties_on_external_id", using: :btree
+  add_index "cl_properties", ["external_url"], name: "index_cl_properties_on_external_url", using: :btree
 
 end
