@@ -77,6 +77,7 @@ ActiveRecord::Schema.define(version: 20140906225834) do
     t.string   "status"
     t.integer  "external_timestamp"
     t.integer  "expires"
+    t.boolean  "deleted"
     t.datetime "created_at",         null: false
     t.datetime "updated_at",         null: false
   end

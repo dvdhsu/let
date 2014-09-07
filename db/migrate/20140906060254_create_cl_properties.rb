@@ -11,6 +11,8 @@ class CreateClProperties < ActiveRecord::Migration
       t.integer :external_timestamp
       t.integer :expires
 
+      t.boolean :deleted
+
       t.timestamps null: false
     end
 
