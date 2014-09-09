@@ -52,6 +52,7 @@ ActiveRecord::Schema.define(version: 20140906225834) do
   create_table "cl_locations", force: true do |t|
     t.string   "lat"
     t.string   "long"
+    t.string   "country"
     t.string   "state"
     t.string   "metro"
     t.string   "county"
@@ -59,11 +60,12 @@ ActiveRecord::Schema.define(version: 20140906225834) do
     t.string   "city"
     t.string   "locality"
     t.string   "formatted_address"
+    t.string   "geolocation_status"
     t.integer  "zipcode"
     t.integer  "accuracy"
     t.integer  "cl_property_id"
-    t.datetime "created_at",        null: false
-    t.datetime "updated_at",        null: false
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
   end
 
   add_index "cl_locations", ["cl_property_id"], name: "index_cl_locations_on_cl_property_id", using: :btree
