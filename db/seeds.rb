@@ -15,3 +15,15 @@ when "test"
 when "production"
   Anchor.create!(anchor: "1313701192", num_polled: 0);
 end
+
+path = Rails.root.join('lib', 'ca_zips.json')
+parsed_zips = JSON.load(path)
+
+for zip in parsed_zips
+  Zip.create!(zipcode: zip["zipcode"],
+              city:    zip["cityname"],
+              county:  zip["countyname"],
+              state:   zip["stateabbr"],
+              lat:     zip["latitude"].to_s,
+              long:    zip["longitude"].to_s)
+end
