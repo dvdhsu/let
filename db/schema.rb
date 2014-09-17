@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140906225834) do
+ActiveRecord::Schema.define(version: 20140917010342) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -85,5 +85,18 @@ ActiveRecord::Schema.define(version: 20140906225834) do
 
   add_index "cl_properties", ["external_id"], name: "index_cl_properties_on_external_id", using: :btree
   add_index "cl_properties", ["external_url"], name: "index_cl_properties_on_external_url", using: :btree
+
+  create_table "zips", force: true do |t|
+    t.integer  "zipcode"
+    t.string   "city"
+    t.string   "county"
+    t.string   "state"
+    t.string   "lat"
+    t.string   "long"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "zips", ["zipcode"], name: "index_zips_on_zipcode", using: :btree
 
 end
