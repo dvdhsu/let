@@ -9,9 +9,9 @@
 case Rails.env
 # just manually set anchor for now
 when "development"
-  a = Anchor.create!(anchor: "1313701192", num_polled: 0);
+  Anchor.create!(anchor: "1313701192", num_polled: 0);
 when "test"
-  a = Anchor.create!(anchor: "1313701192", num_polled: 0);
+  Anchor.create!(anchor: "1313701192", num_polled: 0);
 when "production"
-  a = Anchor.create!(anchor: "1313701192", num_polled: 0);
+  Anchor.create!(anchor: "1313701192", num_polled: 0);
 end
