@@ -23,20 +23,6 @@ ActiveRecord::Schema.define(version: 20140917010342) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "cl_albums", force: true do |t|
-    t.string   "full_src"
-    t.string   "thumbnail_src"
-    t.integer  "full_width"
-    t.integer  "full_height"
-    t.integer  "thumbnail_width"
-    t.integer  "thumbnail_height"
-    t.integer  "cl_property_id"
-    t.datetime "created_at",       null: false
-    t.datetime "updated_at",       null: false
-  end
-
-  add_index "cl_albums", ["cl_property_id"], name: "index_cl_albums_on_cl_property_id", using: :btree
-
   create_table "cl_annotations", force: true do |t|
     t.integer  "num_bed"
     t.integer  "num_bath"
