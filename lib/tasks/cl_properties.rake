@@ -92,33 +92,32 @@ namespace :cl_properties do
       )
 
       if post["location"].length > 0
-        prop.create_cl_location!(
+        cl_prop.create_cl_location!(
           lat:                post["location"]["lat"],
           long:               post["location"]["long"],
           country:            post["location"]["country"],
-          state:              post["location"]["state"] ? post["location"]["state"][-2..-1] : nil,
-          metro:              post["location"]["metro"] ? post["location"]["metro"][-3..-1] : nil,
-          county:             post["location"]["county"] ? post["location"]["county"][-3..-1] : nil,
-          region:             post["location"]["region"] ? post["location"]["region"][-3..-1] : nil,
-          city:               post["location"]["city"] ? post["location"]["city"][-3..-1] : nil,
-          locality:           post["location"]["locality"] ? post["location"]["locality"][-3..-1] : nil,
+          state:              nil_filter(post["location"]["state"])[-2..-1],
+          metro:              nil_filter(post["location"]["metro"])[-3..-1],
+          county:             nil_filter(post["location"]["county"])[-3..-1],
+          region:             nil_filter(post["location"]["region"])[-3..-1],
+          city:               nil_filter(post["location"]["city"])[-3..-1],
+          zipcode:            nil_filter(post["location"]["zipcode"])[-5..-1],
           formatted_address:  post["location"]["formatted_address"],
           geolocation_status: post["location"]["geolocation_status"],
-          zipcode:            post["location"]["zipcode"] ? post["location"]["zipcode"][-5..-1] : nil,
           accuracy:           post["location"]["accuracy"]
         )
       end
 
       if post["images"].length > 0
         for image in post["images"]
-          prop.cl_images.create!(
+          cl_prop.cl_images.create!(
             href: image["full"]
           )
         end
       end
 
       if post["annotations"].length > 0
-        prop.create_cl_annotation!(
+        cl_prop.create_cl_annotation!(
           num_bed:  post["annotations"]["bedrooms"].to_i,
           num_bath: post["annotations"]["bathrooms"].to_i,
           size:     post["annotations"]["sqft"].to_i,
@@ -131,4 +130,9 @@ namespace :cl_properties do
     puts "Post-update anchor: #{Anchor.last.anchor}"
 
   end
+
+  private
+   def nil_filter obj
+     obj.nil? ? nil : obj
+   end
 end
