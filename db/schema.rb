@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140918010603) do
+ActiveRecord::Schema.define(version: 20140917052914) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -80,43 +80,5 @@ ActiveRecord::Schema.define(version: 20140918010603) do
 
   add_index "cl_properties", ["external_id"], name: "index_cl_properties_on_external_id", using: :btree
   add_index "cl_properties", ["external_url"], name: "index_cl_properties_on_external_url", using: :btree
-
-  create_table "properties", force: true do |t|
-    t.string   "source"
-    t.float    "latitude"
-    t.float    "longitude"
-    t.string   "street"
-    t.string   "city"
-    t.integer  "zipcode"
-    t.string   "state"
-    t.string   "country"
-    t.integer  "num_bed"
-    t.float    "num_bath"
-    t.integer  "size"
-    t.date     "avail"
-    t.string   "external_url"
-    t.string   "title"
-    t.string   "body"
-    t.integer  "price"
-    t.time     "expires"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
-  end
-
-  add_index "properties", ["latitude"], name: "index_properties_on_latitude", using: :btree
-  add_index "properties", ["longitude"], name: "index_properties_on_longitude", using: :btree
-
-  create_table "zips", force: true do |t|
-    t.integer  "zipcode"
-    t.string   "city"
-    t.string   "county"
-    t.string   "state"
-    t.string   "lat"
-    t.string   "long"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  add_index "zips", ["zipcode"], name: "index_zips_on_zipcode", using: :btree
 
 end
