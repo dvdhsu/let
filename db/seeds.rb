@@ -16,6 +16,7 @@ when "production"
   Anchor.create!(anchor: "1412377200", num_polled: 0);
 end
 
+=begin
 path = Rails.root.join('lib', 'ca_zips.json')
 parsed_zips = JSON.load(path)
 
@@ -27,3 +28,4 @@ for zip in parsed_zips
               lat:     zip["latitude"].to_s,
               long:    zip["longitude"].to_s)
 end
+=end
