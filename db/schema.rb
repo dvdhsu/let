@@ -55,6 +55,7 @@ ActiveRecord::Schema.define(version: 20140917052914) do
     t.string   "city"
     t.string   "locality"
     t.string   "formatted_address"
+    t.string   "geocoded_address"
     t.string   "geolocation_status"
     t.integer  "zipcode"
     t.integer  "accuracy"
