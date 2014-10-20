@@ -23,6 +23,46 @@ namespace :cl_properties do
     raise "3taps API troubles during whenever job" unless parsed["success"]
     
     for post in parsed["postings"]
+
+      # if it doesn't have a price, ignore it
+      if !post["price"]
+        puts "Skipping -- this property has no price."
+        puts post["external_url"]
+        puts "----------"
+        next
+      end
+
+      # if it's a `wanted' ad, ignore it
+      if post["annotations"]["source_subcat"] == "hsw|sbw"
+        puts "Skipping -- this property is wanted."
+        puts post["external_url"]
+        puts "----------"
+        next
+      end
+
+      # if its location isn't accurate enough, ignore it
+      if post["location"]["accuracy"] < 8
+        puts "Skipping -- this property's location accuracy is below 8."
+        puts post["external_url"]
+        puts "----------"
+        next
+      end
+
+      # if it has no bedrooms, ignore it
+      if post["annotations"]["bedrooms"].nil?
+        puts "Skipping -- no bedrooms."
+        puts post["external_url"]
+        puts "----------"
+        next
+      end
+
+      if post["annotations"]["available"].nil?
+        puts "Skipping -- no avail."
+        puts post["external_url"]
+        puts "----------"
+        next
+      end
+
       prop = ClProperty.where(external_id: post["external_id"])
 
       # if the property is in db...
@@ -40,19 +80,7 @@ namespace :cl_properties do
         end     
       end
 
-      # if it doesn't have a price, ignore it
-      if !post["price"]
-        puts "Skipping -- this property has no price."
-        next
-      end
-
-      # if it's a `wanted' ad, ignore it
-      if post["annotations"]["source_subcat"] == "hsw|sbw"
-        puts "Skipping -- this property is wanted."
-        next
-      end
-
-      prop = ClProperty.create!(
+      cl_prop = ClProperty.create!(
         external_id:        post["external_id"],
         external_url:       post["external_url"],
         heading:            post["heading"],
