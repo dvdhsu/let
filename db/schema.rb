@@ -45,8 +45,8 @@ ActiveRecord::Schema.define(version: 20140917052914) do
   add_index "cl_images", ["cl_property_id"], name: "index_cl_images_on_cl_property_id", using: :btree
 
   create_table "cl_locations", force: true do |t|
-    t.string   "lat"
-    t.string   "long"
+    t.float    "latitude"
+    t.float    "longitude"
     t.string   "country"
     t.string   "state"
     t.string   "metro"

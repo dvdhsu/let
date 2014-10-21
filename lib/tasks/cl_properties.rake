@@ -93,8 +93,8 @@ namespace :cl_properties do
 
       if post["location"].length > 0
         cl_prop.create_cl_location!(
-          lat:                post["location"]["lat"],
-          long:               post["location"]["long"],
+          latitude:           post["location"]["lat"].to_f,
+          longitude:          post["location"]["long"].to_f,
           country:            post["location"]["country"],
           state:              nil_filter(post["location"]["state"])[-2..-1],
           metro:              nil_filter(post["location"]["metro"])[-3..-1],

@@ -1,8 +1,8 @@
 class CreateClLocations < ActiveRecord::Migration
   def change
     create_table :cl_locations do |t|
-      t.string :lat
-      t.string :long
+      t.float :latitude
+      t.float :longitude
       t.string :country
       t.string :state
       t.string :metro
