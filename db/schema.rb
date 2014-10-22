@@ -84,7 +84,9 @@ ActiveRecord::Schema.define(version: 20141022164243) do
 
   create_table "location_scores", force: true do |t|
     t.integer  "ClLocation_id"
-    t.float    "score"
+    t.float    "walk_score"
+    t.float    "bike_score"
+    t.float    "drive_score"
     t.string   "category"
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
@@ -106,6 +108,9 @@ ActiveRecord::Schema.define(version: 20141022164243) do
     t.string   "external_image_url"
     t.string   "phone"
     t.integer  "distance"
+    t.integer  "walk_time"
+    t.integer  "bike_time"
+    t.integer  "drive_time"
     t.datetime "created_at",         null: false
     t.datetime "updated_at",         null: false
   end

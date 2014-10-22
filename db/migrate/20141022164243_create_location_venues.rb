@@ -14,6 +14,9 @@ class CreateLocationVenues < ActiveRecord::Migration
       t.string :external_image_url
       t.string :phone
       t.integer :distance
+      t.integer :walk_time
+      t.integer :bike_time
+      t.integer :drive_time
 
       t.timestamps null: false
     end
