@@ -99,7 +99,6 @@ namespace :cl_properties do
           state:              nil_filter(post["location"]["state"])[-2..-1],
           metro:              nil_filter(post["location"]["metro"])[-3..-1],
           county:             nil_filter(post["location"]["county"])[-3..-1],
-          region:             nil_filter(post["location"]["region"])[-3..-1],
           city:               nil_filter(post["location"]["city"])[-3..-1],
           zipcode:            nil_filter(post["location"]["zipcode"])[-5..-1],
           formatted_address:  post["location"]["formatted_address"],
