@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  ClLocation_id: 
+  score: 1.5
+  type: 
+
+two:
+  ClLocation_id: 
+  score: 1.5
+  type: 

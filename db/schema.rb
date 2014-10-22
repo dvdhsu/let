@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140917052914) do
+ActiveRecord::Schema.define(version: 20141022164243) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -81,5 +81,36 @@ ActiveRecord::Schema.define(version: 20140917052914) do
 
   add_index "cl_properties", ["external_id"], name: "index_cl_properties_on_external_id", using: :btree
   add_index "cl_properties", ["external_url"], name: "index_cl_properties_on_external_url", using: :btree
+
+  create_table "location_scores", force: true do |t|
+    t.integer  "ClLocation_id"
+    t.float    "score"
+    t.string   "category"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+  end
+
+  add_index "location_scores", ["ClLocation_id"], name: "index_location_scores_on_ClLocation_id", using: :btree
+
+  create_table "location_venues", force: true do |t|
+    t.integer  "cl_location_id"
+    t.string   "category"
+    t.string   "address"
+    t.float    "longitude"
+    t.float    "latitude"
+    t.float    "rating"
+    t.string   "name"
+    t.string   "source"
+    t.string   "external_id"
+    t.string   "external_url"
+    t.string   "external_image_url"
+    t.string   "phone"
+    t.integer  "distance"
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+  end
+
+  add_index "location_venues", ["cl_location_id"], name: "index_location_venues_on_cl_location_id", using: :btree
+  add_index "location_venues", ["external_id"], name: "index_location_venues_on_external_id", using: :btree
 
 end
