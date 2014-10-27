@@ -1,7 +1,7 @@
 class CreateLocationScores < ActiveRecord::Migration
   def change
     create_table :location_scores do |t|
-      t.references :ClLocation, index: true
+      t.references :cl_location, index: true
       t.float :walk_score
       t.float :bike_score
       t.float :drive_score
