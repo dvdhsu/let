@@ -10,6 +10,9 @@ gem 'geocoder'
 # Use Yelp for location soring
 gem 'yelp'
 
+# use Haml instead of ERb
+gem 'haml-rails'
+
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 4.2.0.beta1', github: 'rails/rails'
 # Use pg as the database for Active Record
